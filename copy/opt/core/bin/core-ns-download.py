@@ -17,7 +17,7 @@ args = parser.parse_args()
 # Cache file
 cfile = '/tmp/core-ns-cache.json'
 # Nameserver directory
-nsdir = '/tmp'
+nsdir = '/opt/local/etc/nsd/core/'
 
 # Read cache information if available
 cache = {}
