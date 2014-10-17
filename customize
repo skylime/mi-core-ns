@@ -11,6 +11,15 @@ set -o errexit
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
 
+# Create nsd database folder and setup permissions
+echo "* Create nsd database folder and setup permissions"
+mkdir -p /var/nsd
+chown nsd:nsd /var/nsd
+
+# Change permissions for nsd config folder
+echo "* Change permissions for nsd config folder"
+chown nsd:nsd /opt/local/etc/nsd
+
 # Clean up
 echo "* Cleaning up."
 rm -rf /root/*
