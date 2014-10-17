@@ -3,11 +3,12 @@
 # Check and download zip archive with zone information but only
 # if required.
 
-import requests
-import os, zipfile
-import argparse
-from io import BytesIO
+import os
 import json
+import argparse
+import requests
+from io import BytesIO
+from zipfile import ZipFile
 
 # Parse arguments
 parser = argparse.ArgumentParser(description='Download multible zip archives with zone information for NSD.')
@@ -30,28 +31,25 @@ except:
 # Get all information
 for url in args.url:
 	header = {}
-	if cache.get(url):
-		header = {
-			'If-None-Match': cache.get(url)
-		}
+	if url in cache:
+		header['If-None-Match'] = cache[url]
+
 	try:
 		req = requests.get(url, headers=header)
 		req.raise_for_status()
+		if req.status_code != 200:
+			continue
+
+		ZipFile(BytesIO(req.content)).extractall(nsdir)
+
+		subprocess.call(['nsd-control', 'reload'])
+		cache[url] = req.headers.get('etag')
 	except Exception as e:
-		print('Problem: ' + str(e))
-		continue
-	if req.ok and req.status_code == 200:
-		try:
-			z = zipfile.ZipFile(BytesIO(req.content))
-			z.extractall(nsdir)
-			subprocess.call(['nsd-control', 'reload'])
-			cache[url] = req.headers.get('etag')
-		except Exception as e:
-			print(str(e))
+		print(url + ' failed: ' + str(e))
 
 # Write cache information
 try:
-	with open(cfile, 'w+') as cache_file:
+	with open(cfile, 'w') as cache_file:
 		json.dump(cache, cache_file)
 except Exception as e:
-	print(str(e))
+	print('Writing etag-cache failed: ' + str(e))
