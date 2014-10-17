@@ -40,12 +40,12 @@ for url in args.url:
 	except Exception as e:
 		print('Problem: ' + str(e))
 		continue
-	cache[url] = req.headers.get('etag')
 	if req.ok and req.status_code == 200:
 		try:
 			z = zipfile.ZipFile(BytesIO(req.content))
 			z.extractall(nsdir)
 			subprocess.call(['nsd-control', 'reload'])
+			cache[url] = req.headers.get('etag')
 		except Exception as e:
 			print(str(e))
 
