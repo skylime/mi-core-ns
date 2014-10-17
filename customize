@@ -31,7 +31,6 @@ chown nsd:nsd /var/nsd
 
 # Change permissions for nsd config folder
 echo "* Change permissions for nsd config folder"
-mkdir -p /opt/local/etc/nsd/core
 chown -R nsd:nsd /opt/local/etc/nsd
 
 # Import nsd manifest
