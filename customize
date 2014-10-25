@@ -24,6 +24,9 @@ set -o errexit
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
 
+# Newer is better (remove with Q3)
+pkg_add -u http://pkgsrc.smartos.skylime.net/packages/SmartOS/2014Q3/x86_64/All/nsd-4.1.0.tgz
+
 # Create nsd database folder and setup permissions
 echo "* Create nsd database folder and setup permissions"
 mkdir -p /var/nsd
