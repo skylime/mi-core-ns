@@ -6,6 +6,10 @@
 
 * update base image. [Thomas Merkel]
 
+### Fix
+
+* output of python script on success. [Thomas Merkel]
+
 ### Other
 
 * version bump. [Thomas Merkel]
