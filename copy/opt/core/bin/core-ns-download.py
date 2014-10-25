@@ -4,7 +4,7 @@
 # if required.
 
 import requests
-import os, zipfile
+import subprocess, os, zipfile
 import argparse
 from io import BytesIO
 import json
