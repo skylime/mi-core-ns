@@ -1,5 +1,14 @@
 # Changelog
 
+## 14.2.1
+
+### Other
+
+* Merge branch 'master' of github.com:skylime/mi-core-ns. [Thomas Merkel]
+* use star for nsd include files. [Thomas Merkel]
+* update nsd directory. [Thomas Merkel]
+* import subprocess. [Thomas Merkel]
+
 ## 14.2.0
 
 ### Other
