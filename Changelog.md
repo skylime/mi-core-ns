@@ -4,6 +4,7 @@
 
 ### Other
 
+* Update to new nsd version, remove no longer required file. [Thomas Merkel]
 * Merge branch 'master' of github.com:skylime/mi-core-ns. [Thomas Merkel]
 * use star for nsd include files. [Thomas Merkel]
 * update nsd directory. [Thomas Merkel]
