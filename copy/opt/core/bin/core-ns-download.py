@@ -42,6 +42,7 @@ for url in args.url:
 
 		ZipFile(BytesIO(req.content)).extractall(nsdir)
 
+		subprocess.call(['nsd-control', 'reconfig'])
 		subprocess.call(['nsd-control', 'reload'])
 		cache[url] = req.headers.get('etag')
 	except Exception as e:
