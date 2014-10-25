@@ -4,6 +4,7 @@
 
 ### Other
 
+* reconfig is required to read zone list. [Thomas Merkel]
 * Update to new nsd version, remove no longer required file. [Thomas Merkel]
 * Merge branch 'master' of github.com:skylime/mi-core-ns. [Thomas Merkel]
 * use star for nsd include files. [Thomas Merkel]
