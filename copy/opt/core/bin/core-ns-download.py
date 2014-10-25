@@ -12,7 +12,7 @@ from zipfile import ZipFile
 
 # Parse arguments
 parser = argparse.ArgumentParser(description='Download multible zip archives with zone information for NSD.')
-parser.add_argument('url', metavar='url', nargs='+', help='URLs with the ZIP archive')
+parser.add_argument('--url', '-u', metavar='urls', required=True, help='URLs with the ZIP archive (whitespace seperated)')
 args = parser.parse_args()
 
 # Cache file
@@ -29,7 +29,7 @@ except:
 	pass
 
 # Get all information
-for url in args.url:
+for url in args.url.split():
 	header = {}
 	if url in cache:
 		header['If-None-Match'] = cache[url]
@@ -42,8 +42,8 @@ for url in args.url:
 
 		ZipFile(BytesIO(req.content)).extractall(nsdir)
 
-		subprocess.call(['nsd-control', 'reconfig'])
-		subprocess.call(['nsd-control', 'reload'])
+		subprocess.check_output(['nsd-control', 'reconfig'])
+		subprocess.check_output(['nsd-control', 'reload'])
 		cache[url] = req.headers.get('etag')
 	except Exception as e:
 		print(url + ' failed: ' + str(e))
