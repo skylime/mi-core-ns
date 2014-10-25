@@ -1,5 +1,15 @@
 # Changelog
 
+## 14.2.2
+
+### New
+
+* update base image. [Thomas Merkel]
+
+### Other
+
+* version bump. [Thomas Merkel]
+
 ## 14.2.1
 
 ### Other
