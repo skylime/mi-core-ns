@@ -1,5 +1,21 @@
 # Changelog
 
+## 14.2.3
+
+### Fix
+
+* Add script that read out sdc:nic ip information to generate nsd_listen.conf file. [Thomas Merkel]
+
+    If we could read the information from sdc:nic and parse it we listen
+    on that ip addresses. If not the nsd_listen.conf is cleaned to we try
+    to listen on all interface (which moslty result in the bug).  We're
+    also sure we listen on localhost ipv4 and ipv6.
+
+* Create an extra file that is included for ip address binding. [Thomas Merkel]
+
+    This is required to fix the bug we're running into:
+    https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=618
+
 ## 14.2.2
 
 ### New
