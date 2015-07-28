@@ -28,6 +28,10 @@ chown nsd:nsd /var/nsd
 echo "* Change permissions for nsd config folder"
 chown -R nsd:nsd /opt/local/etc/nsd
 
+echo "* Import nsd manifest"
+svccfg import /tmp/nsd.xml
+rm /tmp/nsd.xml
+
 echo "* Activate munin plugins"
 /opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
 
