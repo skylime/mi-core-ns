@@ -12,6 +12,10 @@
 
 * Full path is required if you run commands like nsd-config/-control. [Thomas Merkel]
 
+### Fix
+
+* Nsd.xml manifest still required for 2015Q1. [Thomas Merkel]
+
 ## 14.2.3
 
 ### Fix
