@@ -6,9 +6,7 @@
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
 # Munin plugins
-MUNIN_PLUGIN_SRC='/opt/local/lib/munin/plugins'
-MUNIN_PLUGIN_DST='/opt/local/etc/munin/plugins'
-MUNIN_PLUGINS=(
+MUNIN_PLUGINS="
 	'nsd_munin_hits'
 	'nsd_munin_memory'
 	'nsd_munin_by_type'
@@ -16,46 +14,22 @@ MUNIN_PLUGINS=(
 	'nsd_munin_by_opcode'
 	'nsd_munin_by_rcode'
 	'nsd_munin_zones'
-)
+"
 
 # Exit if any commands fail
 set -o errexit
 
-# Configuring image specific packages
 echo "* Configuring image specific packages.";
 
-# Newer is better (remove with Q3)
-pkg_add -u http://pkgsrc.smartos.skylime.net/packages/SmartOS/2014Q3/x86_64/All/nsd-4.1.0.tgz
-
-# Create nsd database folder and setup permissions
 echo "* Create nsd database folder and setup permissions"
 mkdir -p /var/nsd
 chown nsd:nsd /var/nsd
 
-# Change permissions for nsd config folder
 echo "* Change permissions for nsd config folder"
 chown -R nsd:nsd /opt/local/etc/nsd
 
-# Import nsd manifest
-echo "* Import nsd manifest"
-svccfg import /tmp/nsd.xml
-rm /tmp/nsd.xml
-
-# Activate munin plugins
 echo "* Activate munin plugins"
-for plugin in "${MUNIN_PLUGINS[@]}"; do
-	if [ ! -x ${MUNIN_PLUGIN_SRC}/${plugin} ]; then
-		plugin_src=${plugin%_*}_
-		[ ! -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ] && \
-			plugin_src=${plugin_src%%_*}_
-	else
-		plugin_src=${plugin}
-	fi
-	if [[ -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ]]; then
-		echo "  ${plugin}"
-		ln -sf ${MUNIN_PLUGIN_SRC}/${plugin_src} ${MUNIN_PLUGIN_DST}/${plugin}
-	fi
-done
+/opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
 
 # Clean up
 echo "* Cleaning up."
