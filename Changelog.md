@@ -1,5 +1,17 @@
 # Changelog
 
+## 15.1.0
+
+### New
+
+* Version bump to new core-base. [Thomas Merkel]
+
+	Modify customize script to use default nsd from pkgsrc. Remove no
+	onger required SMF manifest becaut it's in the pkgsrc now. Change
+	and update LICENSE file
+
+* Full path is required if you run commands like nsd-config/-control. [Thomas Merkel]
+
 ## 14.2.3
 
 ### Fix
