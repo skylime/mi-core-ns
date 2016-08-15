@@ -1,5 +1,16 @@
 # Changelog
 
+## 16.2.0
+
+### New
+
+* Version bump to 16.2.0 and munin plugin fix. [Thomas Merkel]
+* Provide new manifest.json file. [Thomas Merkel]
+
+### Other
+
+* Remove nsd.xml because provided by pkgsrc, support dhcp listen. [Thomas Merkel]
+
 ## 15.1.0
 
 ### New
