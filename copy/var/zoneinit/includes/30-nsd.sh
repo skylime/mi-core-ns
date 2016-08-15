@@ -10,12 +10,18 @@ rm /opt/local/etc/nsd/.rnd
 NSD_LISTEN_CONF='/opt/local/etc/nsd/nsd_listen.conf'
 echo > ${NSD_LISTEN_CONF}
 if mdata-get sdc:nics 1>/dev/null 2>&1; then
-	echo "ip-address: 127.0.0.1" >  ${NSD_LISTEN_CONF}
-	echo "ip-address: ::1"       >> ${NSD_LISTEN_CONF}
-	for ip in $(mdata-get sdc:nics | json -a ip); do
-		echo "ip-address: ${ip%/*}" >> ${NSD_LISTEN_CONF}
-	done
+	ips=$(mdata-get sdc:nics | json -e 'this.ips = this.ips ? this.ips.join("\n") : ""' -a ips)
+
+	if [[ "${ips}" =~ "dhcp" ]]; then
+		echo "ip-address: 0.0.0.0" > ${NSD_LISTEN_CONF}
+	else
+		echo "ip-address: 127.0.0.1" >  ${NSD_LISTEN_CONF}
+		echo "ip-address: ::1"       >> ${NSD_LISTEN_CONF}
+		for ip in ${ips}; do
+			echo "ip-address: ${ip%/*}" >> ${NSD_LISTEN_CONF}
+		done
+	fi
 fi
 
 # Enable nsd service
-svcadm enable svc:/network/nsd:default
+svcadm enable svc:/pkgsrc/nsd:default
