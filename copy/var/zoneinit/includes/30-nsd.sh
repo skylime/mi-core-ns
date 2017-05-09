@@ -25,3 +25,7 @@ fi
 
 # Enable nsd service
 svcadm enable svc:/pkgsrc/nsd:default
+
+# Setup simple log monitoring for errors cron
+CRON='0,15,30,45 * * * * /opt/core/bin/check-log "/var/svc/log/pkgsrc-nsd:default.log"'
+(crontab -l 2>/dev/null || true; echo "$CRON" ) | sort | uniq | crontab

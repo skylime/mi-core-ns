@@ -19,8 +19,6 @@ MUNIN_PLUGINS="
 # Exit if any commands fail
 set -o errexit
 
-echo "* Configuring image specific packages.";
-
 echo "* Create nsd database folder and setup permissions"
 mkdir -p /var/nsd
 chown nsd:nsd /var/nsd
@@ -31,7 +29,9 @@ chown -R nsd:nsd /opt/local/etc/nsd
 echo "* Activate munin plugins"
 /opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
 
-# Clean up
+echo "* Cleanup home/admin because of delegate dataset usage"
+rm -rf /home/admin/.[^.]*
+
 echo "* Cleaning up."
 rm -rf /root/*
 
