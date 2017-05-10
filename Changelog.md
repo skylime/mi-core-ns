@@ -1,5 +1,15 @@
 # Changelog
 
+## 17.1.0
+
+### New
+
+* Enable check-log cronjob for nsd. [Thomas Merkel]
+
+### Fix
+
+* Add workaround for check-log script. [Thomas Merkel]
+
 ## 16.4.0
 
 ### New
