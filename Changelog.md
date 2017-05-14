@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.1.1
+
+### Fix
+
+* Fix naming of nsd munin plugins. [Thomas Merkel]
+* Change default pid file location to solve permission issue. [Thomas Merkel]
+
 ## 17.1.0
 
 ### New
