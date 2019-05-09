@@ -1,5 +1,11 @@
 # Changelog
 
+## 18.4.0
+
+### New
+
+* Version bump to 18.4.0. [Thomas Merkel]
+
 ## 17.1.1
 
 ### Fix
