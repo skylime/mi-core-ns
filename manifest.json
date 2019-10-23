@@ -1,11 +1,11 @@
 {
 	"name":         "core-ns",
-	"version":      "18.4.0",
+	"version":      "18.4.1",
 	"description":  "core.io Nameserver",
 	"organization": "SkyLime",
 	"brand":        "Instance",
 	"homepage":     "https://github.com/skylime/mi-core-ns",
-	"base":         "b65c780a-15d3-420d-954d-aee1d56e0ecf",
+	"base":         "208f9314-29cf-4bec-9d8b-c0697d00c929",
 	"customer_metadata": {
 		"admin_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the root user"},
 		"root_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the root user"},
