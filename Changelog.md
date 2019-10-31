@@ -1,5 +1,12 @@
 # Changelog
 
+## 18.4.1
+
+### New
+
+* Update cronjob to download netmgt information every 5 minutes. [Thomas Merkel]
+* Refresh image and use latest core-base release. [Thomas Merkel]
+
 ## 18.4.0
 
 ### New
