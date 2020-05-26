@@ -1,5 +1,11 @@
 # Changelog
 
+## 20.1.1
+
+### Fix
+
+* Provide fix during re-provision OpenSSL file remove [Thomas Merkel]
+
 ## 20.1.0
 
 ### New

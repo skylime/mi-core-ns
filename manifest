@@ -1,7 +1,7 @@
 name="core-ns"
 organization="SkyLime"
 brand="Instance"
-version="20.1.0"
+version="20.1.1"
 description="core.io Nameserver"
 homepage="https://github.com/skylime/mi-core-ns"
 users="root admin"
