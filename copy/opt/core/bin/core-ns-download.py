@@ -35,7 +35,7 @@ for url in args.url.split():
 		header['If-None-Match'] = cache[url]
 
 	try:
-		req = requests.get(url, headers=header)
+		req = requests.get(url, headers=header, timeout=10)
 		req.raise_for_status()
 		if req.status_code != 200:
 			continue
