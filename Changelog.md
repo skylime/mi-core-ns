@@ -1,5 +1,18 @@
 # Changelog
 
+## 21.4.0
+
+### New
+
+* Version bump to 2021Q4 release. [Thomas Merkel]
+
+  * Switching to pkgsrc LTS release 2021Q4
+  * New default python version is 3.9 in 2021Q4
+
+### Other
+
+* Add timeout to requests. [Thomas Merkel]
+
 ## 20.1.1
 
 ### Fix
