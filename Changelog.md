@@ -1,5 +1,14 @@
 # Changelog
 
+## 23.4.0
+
+### New
+
+* Version bump to 2023Q4 [Thomas Merkel]
+
+  * Provide latest nsd version
+  * Switch to python3.11 for python scripts
+
 ## 21.4.0
 
 ### New
