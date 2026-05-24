@@ -1,5 +1,15 @@
 # Changelog
 
+## 25.4.0
+
+### Features
+
+- Switch to core-base 25.4.1 [Thomas Merkel]
+
+### Miscellaneous Tasks
+
+- Update license date [Thomas Merkel]
+
 ## 23.4.0
 
 ### New
