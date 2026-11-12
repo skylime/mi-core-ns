@@ -1,5 +1,11 @@
 # Changelog
 
+## 25.4.1
+
+### Features
+
+- Update to latest core-base 25.4.3 [Thomas Merkel]
+
 ## 25.4.0
 
 ### Features
